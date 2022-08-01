@@ -1,0 +1,141 @@
+@import './addons.scss';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $fFamily;
+}
+
+html, body{
+    width: 100%;
+    height: 100vh;
+    background-color: $cream;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .bar__container{
+        padding: 1rem 2rem;
+        min-width: 500px;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $softRed;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+        .info__container{
+            p.title{
+                font-size: .8rem;
+                color: $veryPaleOrange;
+                margin-bottom: .5rem;
+            }
+            p.value{
+                font-size: 1.5rem;
+                color: $cream;
+                font-weight: $fweightBold;
+            }
+        }
+    }
+    .spending__container{
+        min-width: 500px;
+        background-color: #fff;
+        border-radius: 1rem;
+        padding: 2rem;
+        .spending__title{
+            font-size: 1.75rem;
+            color: $darkBrown;
+            font-weight: $fweightBold;
+            margin-bottom: 1rem;
+        }
+        .chart__container{
+            width: 100%;
+            min-height: 200px;
+            margin-bottom: 1rem;
+            display: grid;
+            grid-template-rows: 3fr 1fr;
+            gap: 1rem;
+            border-bottom: solid $mediumBrown 1px;
+            .bars__row{
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                align-content: end;
+                gap: 1rem;
+                .bar__item{
+                    position: relative;
+                    width: 100%;
+                    height: 30px;
+                    .bar{
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $softRed;
+                        border-radius: .25rem;
+                        cursor: pointer;
+                        &:hover{
+                            opacity: .5;
+                        }
+                        .tooltip{
+                            position: absolute;
+                            top: -2.5rem;
+                            right: -7.5px;
+                            background-color: #000;
+                            color: #fff;
+                            padding: .5rem;
+                            border-radius: .5rem;
+                            display: none;
+                        }
+                    }
+                }
+            }
+            .days__row{
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                .day__item{
+                    text-align: center;
+                    color: $mediumBrown;
+                }
+            }
+        }
+        .total__container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .current-month__container{
+                p.title{
+                    font-size: .9rem;
+                    color: $mediumBrown;
+                }
+                p.value{
+                    font-size: 3rem;
+                    font-weight: $fweightBold;
+                }
+            }
+            .last-month__container{
+                p.value{
+                    text-align: right;
+                    font-weight: $fweightBold;
+                }
+                p.title{
+                    color: $mediumBrown;
+                }
+            }
+        }
+    }
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+    a{
+        color: hsl(228, 45%, 44%);
+    }
+}
